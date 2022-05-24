@@ -5,19 +5,22 @@ import Settings from './pages/settings'
 import { routes } from './shared/routes'
 import Menu from './components/Navbar/Menu'
 import Help from './pages/help'
-import Detailednews from './components/newsList/NewsDetailed'
+import NewsDetailed from './components/newsList/NewsDetailed/NewsDetailed'
+
 
 function App() {
   return (
     <BrowserRouter>
+    
       <Menu />
+      
       <main>
         <Routes>
           <Route path={routes.root} element={<Home />} />
           <Route path={routes.settings} element={<Settings />} />
           <Route path={routes.help} element={<Help />} />
           <Route path={routes.about} element={<About />} />
-          <Route path={routes.detailednews} element={<Detailednews />} />
+          <Route path={routes.newsdetailed} element={<NewsDetailed />} />
         </Routes>
       </main>
     </BrowserRouter>

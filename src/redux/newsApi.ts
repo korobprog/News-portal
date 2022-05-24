@@ -26,6 +26,7 @@ export interface Params {
   to?: string
   from?: string
   page?: number
+  q?: string
 }
 
 export enum Type {
@@ -46,11 +47,11 @@ export const newsApi = createApi({
   //https://newsapi.org/v2/everything/?q=russia&language
   endpoints: (builder) => ({
     newsApi: builder.query<Article[], Params>({
-      query: ({ from, to, page }) => ({
+      query: ({ from, to, page, q }) => ({
         url: '/',
         params: {
-          language: 'ru',
-          q: 'ru',
+          language:  'ru'  ,
+          q:  q ? q : 'ru' ,
           apiKey: 'a05140dd572a42c0a35b254e46c0bd0b', //import.meta.env.REACT_APP_NEWS_API_KEY, 19fda756c8a34265b57408e22f7241cb
           from,
           to,

@@ -3,5 +3,5 @@ export const routes = {
   settings: '/settings',
   help: '/help',
   about: '/about',
-  detailednews: '/detailednews',
+  newsdetailed: '/detailednews/:id',
 }

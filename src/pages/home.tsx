@@ -4,15 +4,18 @@ import { Grid, Typography, Container, Divider } from '@mui/material'
 import News from '../components/newsList/News'
 import { useNewsApiQuery } from '../redux'
 import { endOfDay, startOfDay } from 'date-fns'
+
 //https://youtu.be/XBRLVRjZ3CQ
 const Home = () => {
   const [date, setDate] = useState<Date>(new Date())
   const [page, setPage] = useState<number>(1)
+   
   const { data } = useNewsApiQuery({
     from: date ? startOfDay(date).toISOString() : undefined,
     to: date ? endOfDay(date).toISOString() : undefined,
     page: page ? page : undefined,
   })
+  
   return (
     <Container>
       <Divider>
@@ -29,8 +32,11 @@ const Home = () => {
             mt: '1rem',
           }}
         >
-
-          <News news={data} page={page} setPage={setPage} />
+          <News
+            news={data}
+            page={page}
+            setPage={setPage}
+          />
         </Grid>
       </Grid>
     </Container>

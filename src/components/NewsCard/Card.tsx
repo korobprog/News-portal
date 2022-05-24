@@ -1,14 +1,20 @@
-import Card from '@mui/material/Card'
-import CardContent from '@mui/material/CardContent'
-import CardMedia from '@mui/material/CardMedia'
-import Typography from '@mui/material/Typography'
-import { CardActionArea, Divider, Link } from '@mui/material'
-import Container from '@mui/material/Container'
-import Grid from '@mui/material/Grid'
-import Stack from '@mui/material/Stack'
+import {
+  Typography,
+  Card,
+  CardContent,
+  CardMedia,
+  CardActionArea,
+  Divider,
+  Link,
+  Container,
+  Grid,
+  Stack,
+} from '@mui/material'
+import format from 'date-fns/format';
+import ru from "date-fns/locale/ru";
 
 const ActionAreaCard = ({ data }) => {
-
+  const timeNews = format(new Date(data.publishedAt), `PPPPp` , {locale: ru})
   return (
     <Stack spacing={1}>
       <Container
@@ -18,30 +24,26 @@ const ActionAreaCard = ({ data }) => {
         }}
         // sx={{ width: 1 / 1 }}
       >
-        <Grid item xs={12}>
+        <Grid 
+        item xs={12}
+        
+        >
           <Card>
             <CardActionArea>
               <CardMedia
                 component="img"
-                height="300"
-                width="300"
+                height="auto"
+                width="auto"
                 image={data.urlToImage}
                 alt="green iguana"
               />
               <CardContent>
                 <Typography gutterBottom variant="overline" component="div">
-                  {data.publishedAt}
+                {timeNews}
                   <Divider />
                 </Typography>
-                <Typography gutterBottom variant="h6" component="div">
-                  {data.description}
-                </Typography>
-                <Divider />
                 <Typography variant="body2" color="text.secondary">
                   {data.title}
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  <Link href={data.url}>Источник:{data.source.name}</Link>
                 </Typography>
               </CardContent>
             </CardActionArea>
@@ -52,4 +54,4 @@ const ActionAreaCard = ({ data }) => {
   )
 }
 
-export default ActionAreaCard;
+export default ActionAreaCard
