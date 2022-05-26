@@ -57,7 +57,7 @@ const ResponsiveAppBar = () => {
               textDecoration: 'none',
             }}
           >
-            МИР
+            MIR IT
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -104,7 +104,7 @@ const ResponsiveAppBar = () => {
             variant="h5"
             noWrap
             component="a"
-            href=""
+            href="/"
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },
@@ -116,7 +116,7 @@ const ResponsiveAppBar = () => {
               textDecoration: 'none',
             }}
           >
-            МИРА
+            MIR IT
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (

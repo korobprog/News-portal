@@ -5,16 +5,16 @@ import {
   CardMedia,
   CardActionArea,
   Divider,
-  Link,
   Container,
   Grid,
   Stack,
+  Button,
 } from '@mui/material'
-import format from 'date-fns/format';
-import ru from "date-fns/locale/ru";
+import format from 'date-fns/format'
+import ru from 'date-fns/locale/ru'
 
 const ActionAreaCard = ({ data }) => {
-  const timeNews = format(new Date(data.publishedAt), `PPPPp` , {locale: ru})
+  const timeNews = format(new Date(data.publishedAt), `PPPPp`, { locale: ru })
   return (
     <Stack spacing={1}>
       <Container
@@ -24,10 +24,7 @@ const ActionAreaCard = ({ data }) => {
         }}
         // sx={{ width: 1 / 1 }}
       >
-        <Grid 
-        item xs={12}
-        
-        >
+        <Grid item xs={12}>
           <Card>
             <CardActionArea>
               <CardMedia
@@ -35,11 +32,11 @@ const ActionAreaCard = ({ data }) => {
                 height="auto"
                 width="auto"
                 image={data.urlToImage}
-                alt="green iguana"
+                alt={data.title}
               />
               <CardContent>
                 <Typography gutterBottom variant="overline" component="div">
-                {timeNews}
+                  {timeNews}
                   <Divider />
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
